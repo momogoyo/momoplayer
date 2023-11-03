@@ -1,4 +1,8 @@
 module.exports = {
   reactStrictMode: true,
-  transpilePackages: ["ui"],
-};
+  transpilePackages: [
+    "@momoplayer/core",
+    "@momoplayer/react",
+    "@momoplayer/vue"
+  ]
+}
