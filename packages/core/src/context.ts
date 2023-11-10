@@ -1,7 +1,12 @@
 import { createCommands } from './commands'
+
 let uid = 0
 
 const momoContext = {}
+
+export const getContext = () => {
+  return momoContext[uid]
+}
 
 export const createContext = (
   element: HTMLElement
@@ -18,4 +23,10 @@ export const createContext = (
   return momoContext[uid]
 }
 
-export default createContext
+export const provider = (
+  callback: any
+) => {
+  const context = momoContext[uid]
+
+  return callback(context)
+}

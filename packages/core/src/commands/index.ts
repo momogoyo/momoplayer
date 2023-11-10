@@ -1,14 +1,20 @@
-export const createCommands = () => {
-  const play = () => {
-    console.log('play')
-  }
+import { provider } from '../context'
 
-  const pause = () => {
-    console.log('pause')
-  }
+export const createCommands = provider((
+  context
+) => {
+  return () => {
+    const play = () => {
+      context.element.play()
+    }
 
-  return {
-    play,
-    pause
+    const pause = () => {
+      context.element.pause()
+    }
+
+    return {
+      play,
+      pause
+    }
   }
-}
+})
