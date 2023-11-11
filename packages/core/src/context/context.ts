@@ -1,6 +1,5 @@
-import { createCommands } from './commands'
-
-import type { Config } from './config'
+import type { ElementTypes, Config } from '@/types'
+import type { Context } from './types'
 
 let uid = 0
 
@@ -12,7 +11,7 @@ export const getContext = () => {
 }
 
 export const createContext = (
-  element: HTMLElement,
+  element: ElementTypes,
   config: Config
 ) => {
   uid++
@@ -26,9 +25,9 @@ export const createContext = (
   return momoContext[uid]
 }
 
-export const provider = (
-  callback: any
-) => {
+export const provider = <T>(
+  callback: (context: Context) => T
+): T => {
   const context = momoContext[uid]
 
   return callback(context)

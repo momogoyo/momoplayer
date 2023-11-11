@@ -1,20 +1,11 @@
-import { provider } from '../context'
+import { play } from './play'
+import { pause } from './pause'
+import { toggle } from './toggle'
 
-export const createCommands = provider((
-  context
-) => {
-  return () => {
-    const play = () => {
-      context.element.play()
-    }
-
-    const pause = () => {
-      context.element.pause()
-    }
-
-    return {
-      play,
-      pause
-    }
+export const createCommands = () => {
+  return {
+    play,
+    pause,
+    toggle
   }
-})
+}

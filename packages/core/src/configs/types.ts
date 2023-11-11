@@ -1,5 +1,3 @@
-import { extend } from '@momoplayer/shared'
-
 export interface Config {
   // 미디어 리소스 URL를 설정합니다.
   source: string,
@@ -17,7 +15,7 @@ export interface Config {
   ui?: boolean
 }
 
-const defaultConfig = {
+export const defaultConfig = {
   source: '',
   autoplay: false,
   muted: false,
@@ -25,13 +23,4 @@ const defaultConfig = {
   volume: 0.5,
   spatial: false,
   ui: false
-}
-
-export const defineConfig = (
-  config: Config
-) => {
-  return extend(
-    defaultConfig,
-    config
-  )
 }
