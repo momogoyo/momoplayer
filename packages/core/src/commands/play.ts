@@ -1,7 +1,5 @@
-import { provider } from '@/context'
-
-export const play = provider(() => {
+export const play = () => {
   return () => {
     
   }
-})
+}

@@ -1,7 +1,5 @@
-import { provider } from '@/context'
-
-export const pause = provider(() => {
+export const pause = () => {
   return () => {
     
   }
-})
+}

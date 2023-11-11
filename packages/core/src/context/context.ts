@@ -1,4 +1,4 @@
-import type { ElementTypes, Config } from '@/types'
+import type { ElementTypes } from '@/types'
 import type { Context } from './types'
 
 let uid = 0
@@ -11,14 +11,13 @@ export const getContext = () => {
 }
 
 export const createContext = (
-  element: ElementTypes,
-  config: Config
+  element: ElementTypes
 ) => {
   uid++
 
   momoContext[uid] = {
+    uid,
     element,
-    config,
     instance: null
   }
 

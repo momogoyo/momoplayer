@@ -1,7 +1,9 @@
-import { defineConfig } from './configs/config'
-import { createContext } from './context/context'
-import { createCommands } from './commands'
-import { createObject } from './utils'
+import { defineConfig } from '@/configs'
+import { createContext } from '@/context'
+import { createCommands } from '@/commands'
+import { createUI } from '@/ui'
+import { createSpatial } from '@/spatial'
+import { createObject } from '@/utils'
 
 import type { ElementTypes, Config } from './types'
 
@@ -10,14 +12,22 @@ export const createPlayer = (
   config: Config
 ) => {
   const mergeConfig = defineConfig(config)
-  const context = createContext(element, mergeConfig)
+  
+  const context = createContext(element)
+  
   const instance = context.instance = createObject({
     ...createCommands()
   }, {
+    config: {
+      ...mergeConfig
+    },
     version: {
-      value: '1.0.0'
+      value: '0.0.1'
     }
   })
+
+  instance.styles = createUI()
+  instance.spatial = createSpatial()
   
   return instance
 }

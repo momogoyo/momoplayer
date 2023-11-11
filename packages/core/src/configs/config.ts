@@ -7,6 +7,7 @@ export const defineConfig = (
   config: Config
 ) => {
   return extend(
+    {},
     defaultConfig,
     config
   )

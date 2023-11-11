@@ -1,7 +1,15 @@
 import type { ElementTypes, Config } from '@/types'
 
-export interface Context {
-  element: ElementTypes
+export interface Instance {
   config: Config
-  instance: null
+  version: string
+  commands: () => void
+  ui: () => void
+  spatial: () => void
+}
+
+export interface Context {
+  uid: number
+  element: ElementTypes
+  instance: Instance
 }

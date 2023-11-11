@@ -1,0 +1,3 @@
+export {
+  createSpatial
+} from './spatial'

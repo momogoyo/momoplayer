@@ -1,7 +1,5 @@
-import { provider } from '@/context'
-
-export const toggle = provider(() => {
+export const toggle = () => {
   return () => {
     
   }
-})
+}
