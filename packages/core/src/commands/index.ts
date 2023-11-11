@@ -5,13 +5,11 @@ export const createCommands = provider((
 ) => {
   return () => {
     const play = () => {
-      console.log('context play', context)
-      // context.element.play()
+      context.element.play()
     }
 
     const pause = () => {
-      console.log('context pause', context)
-      // context.element.pause()
+      context.element.pause()
     }
 
     return {

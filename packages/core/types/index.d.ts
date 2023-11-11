@@ -1,5 +1,2 @@
-export declare const createPlayer: (element: HTMLElement, config: any) => {
-    element: HTMLElement;
-    context: any;
-};
+export declare const createPlayer: (element: HTMLElement | HTMLDivElement | HTMLVideoElement | HTMLAudioElement | HTMLMediaElement, config: any) => any;
 export default createPlayer;

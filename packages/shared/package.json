@@ -1,0 +1,23 @@
+{
+  "name": "@momoplayer/shared",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build",
+    "publish": "pnpm build && npm publish"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2",
+    "vite": "^4.5.0"
+  }
+}

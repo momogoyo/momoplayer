@@ -1,22 +1,20 @@
-import { createContext } from './context'
 import { defineConfig } from './config'
+import { createContext } from './context'
+import { createCommands } from './commands'
+import { createObject } from './utils'
 
 export const createPlayer = (
   element: HTMLElement | HTMLDivElement | HTMLVideoElement | HTMLAudioElement | HTMLMediaElement,
   config: any
 ) => {
   const mergeConfig = defineConfig(config)
-  const context = createContext(element)
+  const context = createContext(element, mergeConfig)
+  const instance = context.instance.createObject(
+    ...createCommands(),
+    {}
+  )
 
-  const api = {
-    element,
-    context
-  }
-
-  console.log('config: ', mergeConfig)
-  console.log('api: ', api)
-
-  return api
+  return instance
 }
 
 export default createPlayer

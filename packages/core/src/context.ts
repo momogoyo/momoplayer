@@ -1,7 +1,10 @@
 import { createCommands } from './commands'
 
+import type { Config } from './config'
+
 let uid = 0
 
+// global context
 const momoContext = {}
 
 export const getContext = () => {
@@ -9,15 +12,15 @@ export const getContext = () => {
 }
 
 export const createContext = (
-  element: HTMLElement
+  element: HTMLElement,
+  config: Config
 ) => {
   uid++
 
-  const commands = createCommands()
-
   momoContext[uid] = {
     element,
-    commands
+    config,
+    instance: null
   }
 
   return momoContext[uid]

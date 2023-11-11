@@ -16,6 +16,9 @@
     "build": "tsc && vite build",
     "publish": "pnpm build && npm publish"
   },
+  "dependencies": {
+    "@momoplayer/shared": "^0.0.0"
+  },
   "devDependencies": {
     "typescript": "^5.0.2",
     "vite": "^4.4.5"

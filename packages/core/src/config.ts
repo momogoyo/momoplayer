@@ -1,4 +1,6 @@
-export interface Configs {
+import { extend } from '@momoplayer/shared'
+
+export interface Config {
   // 미디어 리소스 URL를 설정합니다.
   source: string,
   // 미디어의 자동 재생 여부를 설정합니다.
@@ -15,8 +17,21 @@ export interface Configs {
   ui?: boolean
 }
 
+const defaultConfig = {
+  source: '',
+  autoplay: false,
+  muted: false,
+  loop: false,
+  volume: 0.5,
+  spatial: false,
+  ui: false
+}
+
 export const defineConfig = (
-  config: Configs
+  config: Config
 ) => {
-  
+  return extend(
+    defaultConfig,
+    config
+  )
 }

@@ -1,4 +1,4 @@
-export interface Configs {
+export interface Config {
     source: string;
     autoplay?: boolean;
     muted?: boolean;
@@ -7,4 +7,4 @@ export interface Configs {
     spatial?: boolean;
     ui?: boolean;
 }
-export declare const defineConfig: (config: Configs) => void;
+export declare const defineConfig: (config: Config) => any;
