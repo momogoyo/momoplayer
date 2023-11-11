@@ -1,18 +1,26 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import core from '@momogoyo/core'
+import { useEffect, useState, useRef } from 'react'
+import { createPlayer } from '@momoplayer/core'
 
 const Page = ({
   children
 }: React.PropsWithChildren): JSX.Element => {
+  const [mounted, setMounted] = useState<boolean>(false)
+  const videoRef = useRef(null)
+
   useEffect(() => {
-    console.log(core)
+    setMounted(true)
+    const player = createPlayer(videoRef.current, {})
+
+    console.log(player)
   }, [])
 
   return (
-    <div>
-      {children}
+    <div className={'momoplayer'}>
+      {mounted && (
+        <video ref={videoRef} />
+      )}
     </div>
   )
 }
