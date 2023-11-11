@@ -1,9 +1,9 @@
+import { createObject } from '@/utils'
 import { defineConfig } from '@/configs'
 import { createContext } from '@/context'
 import { createCommands } from '@/commands'
 import { createUI } from '@/ui'
 import { createSpatial } from '@/spatial'
-import { createObject } from '@/utils'
 
 import type { ElementTypes, Config } from './types'
 
@@ -26,7 +26,7 @@ export const createPlayer = (
     }
   })
 
-  instance.styles = createUI()
+  instance.ui = createUI()
   instance.spatial = createSpatial()
   
   return instance
