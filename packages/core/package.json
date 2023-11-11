@@ -1,6 +1,6 @@
 {
   "name": "@momoplayer/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/momoplayer.umd.js",
   "module": "./dist/momoplayer.mjs",
   "types": "./types/index.d.ts",
