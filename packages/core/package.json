@@ -1,5 +1,5 @@
 {
-  "name": "@momoplaer/core",
+  "name": "@momoplayer/core",
   "version": "0.0.0",
   "main": "./dist/momoplayer.umd.js",
   "module": "./dist/momoplayer.mjs",
