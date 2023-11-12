@@ -17,9 +17,13 @@
     "publish": "pnpm build && npm publish"
   },
   "dependencies": {
-    "@momoplayer/shared": "^0.0.0"
+    "@momoplayer/shared": "^0.0.0",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/next-plugin": "^2.3.2",
+    "@vanilla-extract/vite-plugin": "^3.9.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },

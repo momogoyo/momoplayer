@@ -1,1 +1,1 @@
-export declare const createCommands: any;
+export declare const createCommands: () => (commands: any) => void;

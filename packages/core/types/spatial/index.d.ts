@@ -1,0 +1,1 @@
+export { createSpatial } from './spatial';

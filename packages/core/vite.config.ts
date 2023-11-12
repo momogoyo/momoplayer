@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import path from 'path'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 export default defineConfig({
   build: {
@@ -10,6 +11,11 @@ export default defineConfig({
       formats: ['es', 'umd']
     }
   },
+  plugins: [
+    vanillaExtractPlugin({
+      emitCssInSsr: true
+    })
+  ],
   define: {
     'process.env': {}
   },

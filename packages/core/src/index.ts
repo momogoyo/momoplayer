@@ -16,7 +16,7 @@ export const createPlayer = (
   const context = createContext(element)
   
   const instance = context.instance = createObject({
-    ...createCommands()
+    // commands: { ...createCommands() }
   }, {
     config: {
       ...mergeConfig
@@ -26,6 +26,7 @@ export const createPlayer = (
     }
   })
 
+  instance.commands = createCommands()
   instance.ui = createUI()
   instance.spatial = createSpatial()
   

@@ -1,10 +1,18 @@
 import { provider } from '@/context'
+import { style } from '@vanilla-extract/css'
 
 export const createUI = () => provider(({
   element,
   instance
 }) => {
-  console.log('createUI', element)
+  const container = document.createElement('div')
+  // const ContainerStyle = style({
+  //   display: 'flex'
+  // })
+
+  // container.classList.add(ContainerStyle)
+
+  // console.log(ContainerStyle)
 
   return () => {
     instance

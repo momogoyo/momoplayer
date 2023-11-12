@@ -9,7 +9,22 @@ const Page = ({
   const [mounted, setMounted] = useState<boolean>(false)
   const mediaRef1 = useRef<HTMLVideoElement | null>(null)
   const mediaRef2 = useRef<HTMLVideoElement | null>(null)
-  const mediaRef3 = useRef<HTMLAudioElement | null>(null)
+  const playerRef1 = useRef<any>(null)
+  const playerRef2 = useRef<any>(null)
+
+  const onClick1 = () => {
+    if (!playerRef1.current) return
+
+    playerRef1.current.commands({ play: true })
+    const { play } = playerRef1.current.commands()
+  }
+
+  const onClick2 = () => {
+    if (!playerRef2.current) return
+
+    playerRef2.current.commands({ play: true })
+    const { play } = playerRef2.current.commands()
+  }
 
   useEffect(() => {
     setMounted(true)
@@ -17,30 +32,36 @@ const Page = ({
 
   useEffect(() => {
     if (mounted && mediaRef1.current) {
-      const player1 = createPlayer(mediaRef1.current, { ui: true })
-      console.log(player1)
+      playerRef1.current = createPlayer(mediaRef1.current, {
+        ui: true,
+        source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+      })
     }
   }, [mounted, mediaRef1.current])
   
+  
   useEffect(() => {
     if (mounted && mediaRef2.current) {
-      const player2 = createPlayer(mediaRef2.current, { autoplay: true })
-      console.log(player2) 
+      playerRef2.current = createPlayer(mediaRef2.current, {
+        autoplay: true,
+        source: ''
+      })
     }
   }, [mounted, mediaRef2.current])
 
-  useEffect(() => {
-    if (mounted && mediaRef3.current) {
-      const player3 = createPlayer(mediaRef3.current, { muted: true })
-      console.log(player3)
-    }
-  }, [mounted, mediaRef3.current])
-
   return (
     <div className={'momoplayer'}>
-      <video ref={mediaRef1} />
-      <video ref={mediaRef2} />
-      <audio ref={mediaRef3} />
+      <video 
+        ref={mediaRef1} 
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        onClick={onClick1}
+        />
+      <audio 
+        ref={mediaRef2}
+        src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3"
+        controls={true}
+        onClick={onClick2}
+      />
 
       {children}
     </div>
