@@ -1,1 +1,4 @@
-export declare const createCommands: () => (commands: any) => void;
+export declare const createCommands: () => (command: any) => {
+    play: boolean;
+    pause: boolean;
+};

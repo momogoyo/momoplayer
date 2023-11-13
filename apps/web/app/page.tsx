@@ -33,8 +33,9 @@ const Page = ({
   useEffect(() => {
     if (mounted && mediaRef1.current) {
       playerRef1.current = createPlayer(mediaRef1.current, {
+        source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
         ui: true,
-        source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+        muted: true
       })
     }
   }, [mounted, mediaRef1.current])
@@ -43,8 +44,9 @@ const Page = ({
   useEffect(() => {
     if (mounted && mediaRef2.current) {
       playerRef2.current = createPlayer(mediaRef2.current, {
+        source: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3',
         autoplay: true,
-        source: ''
+        volume: 0.8
       })
     }
   }, [mounted, mediaRef2.current])
@@ -52,13 +54,11 @@ const Page = ({
   return (
     <div className={'momoplayer'}>
       <video 
-        ref={mediaRef1} 
-        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        ref={mediaRef1}
         onClick={onClick1}
         />
       <audio 
         ref={mediaRef2}
-        src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3"
         controls={true}
         onClick={onClick2}
       />

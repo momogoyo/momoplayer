@@ -1,4 +1,6 @@
-import type { ElementTypes } from '@/types'
+import { initializeMedia } from '@/configs'
+
+import type { MediaTypes, Config } from '@/types'
 import type { Context } from './types'
 
 let uid = 0
@@ -11,15 +13,19 @@ export const getContext = () => {
 }
 
 export const createContext = (
-  element: ElementTypes
+  element: MediaTypes,
+  config: Config
 ) => {
   uid++
 
   momoContext[uid] = {
     uid,
     element,
+    config,
     instance: null
   }
+
+  initializeMedia(element, config)
 
   return momoContext[uid]
 }

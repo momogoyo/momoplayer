@@ -5,22 +5,22 @@ import { createCommands } from '@/commands'
 import { createUI } from '@/ui'
 import { createSpatial } from '@/spatial'
 
-import type { ElementTypes, Config } from './types'
+import type { MediaTypes, Config } from './types'
 
 export const createPlayer = (
-  element: ElementTypes,
+  media: MediaTypes,
   config: Config
 ) => {
   const mergeConfig = defineConfig(config)
   
-  const context = createContext(element)
+  const context = createContext(media, mergeConfig)
   
   const instance = context.instance = createObject({
     // commands: { ...createCommands() }
   }, {
-    config: {
-      ...mergeConfig
-    },
+    // config: {
+    //   ...mergeConfig
+    // },
     version: {
       value: '0.0.1'
     }

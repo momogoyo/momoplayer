@@ -1,7 +1,6 @@
 export type { Config } from './types'
 
 export { 
-  defineConfig
+  defineConfig,
+  initializeMedia
 } from './config'
-
-export { default } from './config'

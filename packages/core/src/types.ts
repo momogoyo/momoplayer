@@ -1,6 +1,4 @@
-export type ElementTypes = 
-  HTMLElement | 
-  HTMLDivElement | 
+export type MediaTypes = 
   HTMLVideoElement | 
   HTMLAudioElement | 
   HTMLMediaElement
