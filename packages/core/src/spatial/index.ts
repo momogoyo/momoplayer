@@ -1,3 +1,0 @@
-export {
-  createSpatial
-} from './spatial'

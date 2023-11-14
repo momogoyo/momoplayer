@@ -1,6 +1,5 @@
-import type { ElementTypes, Config } from '@/types';
+import type { MediaTypes, Config } from '@/types';
 export interface Instance {
-    config: Config;
     version: string;
     commands: () => void;
     ui: () => void;
@@ -8,6 +7,9 @@ export interface Instance {
 }
 export interface Context {
     uid: number;
-    element: ElementTypes;
+    config: Config;
+    element: MediaTypes;
+    refs: any;
+    emotion: any;
     instance: Instance;
 }

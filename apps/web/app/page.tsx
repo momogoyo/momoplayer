@@ -7,8 +7,8 @@ const Page = ({
   children
 }: React.PropsWithChildren): JSX.Element => {
   const [mounted, setMounted] = useState<boolean>(false)
-  const mediaRef1 = useRef<HTMLVideoElement | null>(null)
-  const mediaRef2 = useRef<HTMLVideoElement | null>(null)
+  const mediaRef1 = useRef<HTMLDivElement | null>(null)
+  const mediaRef2 = useRef<HTMLDivElement | null>(null)
   const playerRef1 = useRef<any>(null)
   const playerRef2 = useRef<any>(null)
 
@@ -17,6 +17,8 @@ const Page = ({
 
     playerRef1.current.commands({ play: true })
     const { play } = playerRef1.current.commands()
+
+    console.log(playerRef1.current)
   }
 
   const onClick2 = () => {
@@ -34,9 +36,12 @@ const Page = ({
     if (mounted && mediaRef1.current) {
       playerRef1.current = createPlayer(mediaRef1.current, {
         source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        autoplay: true,
+        muted: true,
         ui: true,
-        muted: true
       })
+
+      // playerRef1.current.render(mediaRef1.current)
     }
   }, [mounted, mediaRef1.current])
   
@@ -46,6 +51,7 @@ const Page = ({
       playerRef2.current = createPlayer(mediaRef2.current, {
         source: 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3',
         autoplay: true,
+        controls: true,
         volume: 0.8
       })
     }
@@ -53,15 +59,14 @@ const Page = ({
 
   return (
     <div className={'momoplayer'}>
-      <video 
+      <div 
         ref={mediaRef1}
         onClick={onClick1}
-        />
-      <audio 
+        ></div>
+      <div 
         ref={mediaRef2}
-        controls={true}
         onClick={onClick2}
-      />
+        ></div>
 
       {children}
     </div>

@@ -1,6 +1,5 @@
 export type { Config } from './types'
 
 export { 
-  defineConfig,
-  initializeMedia
+  defineConfig
 } from './config'

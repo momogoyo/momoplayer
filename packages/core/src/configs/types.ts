@@ -5,6 +5,8 @@ export interface Config {
   autoplay?: boolean
   // 미디어의 음소거 여부를 설정합니다.
   muted?: boolean
+  // 미디어의 기본 컨트롤바 표시 여부를 설정합니다.
+  controls?: boolean
   // 미디어의 반복 재생 여부를 설정합니다
   loop?: boolean
   // 미디어의 초기 볼륨 값을 설정합니다. 
@@ -19,6 +21,7 @@ export const defaultConfig = {
   source: '',
   autoplay: false,
   muted: false,
+  controls: false,
   loop: false,
   volume: 0.5,
   spatial: false,

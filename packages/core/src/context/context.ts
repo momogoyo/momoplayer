@@ -1,6 +1,4 @@
-import { initializeMedia } from '@/configs'
-
-import type { MediaTypes, Config } from '@/types'
+import type { Config } from '@/types'
 import type { Context } from './types'
 
 let uid = 0
@@ -13,7 +11,7 @@ export const getContext = () => {
 }
 
 export const createContext = (
-  element: MediaTypes,
+  element: HTMLElement,
   config: Config
 ) => {
   uid++
@@ -22,10 +20,11 @@ export const createContext = (
     uid,
     element,
     config,
+    emotion: null,
     instance: null
   }
 
-  initializeMedia(element, config)
+  // initializeLoad(element, config)
 
   return momoContext[uid]
 }
