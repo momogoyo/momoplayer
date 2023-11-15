@@ -40,3 +40,12 @@ export const extend = (target, ...sources) => {
 
   return extend(target, ...sources)
 }
+
+export const checkMediaType = (
+  source: string
+) => {
+  const audioExtensions = [ '.mp3', '.wav', '.ogg', '.aac']
+  const extension = source.substring(source.lastIndexOf('.'))
+
+  return audioExtensions.includes(extension) ? 'audio' : 'video'
+}

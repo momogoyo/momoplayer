@@ -1,21 +1,22 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
-import type { Emotion } from '@emotion/css/types/create-instance'
 import type { Context } from '@/context/types'
 
-const Container = (
+interface ContainerProps {
   context: Context
-) => {
+  mediaComponent: JSX.Element
+}
+
+const Container = ({
+  context,
+  mediaComponent
+}: ContainerProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  
-  useEffect(() => {
-    if (containerRef.current && context.refs.media) {
-      containerRef.current.appendChild(context.refs.media)
-    }
-  }, [context])
 
   return (
-    <div ref={containerRef}></div>
+    <div ref={containerRef}>
+      {mediaComponent}
+    </div>
   )
 }
 
