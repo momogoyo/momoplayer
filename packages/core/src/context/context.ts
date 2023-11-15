@@ -20,9 +20,6 @@ export const createContext = (
     uid,
     element,
     config,
-    refs: {
-      media: null
-    },
     emotion: null,
     instance: null
   }
