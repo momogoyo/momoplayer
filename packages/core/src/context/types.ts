@@ -8,10 +8,13 @@ export interface Instance {
 }
 
 export interface Context {
+  
   uid: number
   config: Config
   element: MediaTypes
-  refs: any
+  refs: {
+    media: HTMLMediaElement
+  }
   emotion: any
   instance: Instance
 }

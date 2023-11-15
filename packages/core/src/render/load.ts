@@ -5,30 +5,53 @@ import Container from '@/components/Container'
 
 import type { MediaTypes, Config } from '@/types'
 
-// 여기서 초기 설정까지하고 새로운 비디오 요소까지 만들어서 넘겨주는거 하면 될듯
-export const createRender = () => provider((
-  context
-) => {
+export const createRender = () => provider(async (context) => {
+  await loadMedia(context)
+
   context.emotion = createEmotion({ key: 'momoplayer' })
 
-  const component = h(Container, context)
+  const component = h(Container, { ...context })
   render(component, context.element)
 })
 
+const loadMedia = async (context) => {
+  const mediaElement = document.createElement('video')
+
+  if (context.config.source.endsWith('.m3u8')) {
+    // HLS
+  } else if (context.config.source.endsWith('.mp4') || context.config.source.endsWith('.mp3')) {
+    mediaElement.src = context.config.source
+
+    await new Promise((resolve, reject) => {
+      mediaElement.load()
+      mediaElement.onloadeddata = resolve
+      mediaElement.onerror = reject
+    })
+  } else {
+    
+  }
+
+  context.refs.media = mediaElement
+}
+
 export const initializeLoad = (
-  media: HTMLElement,
+  media: HTMLMediaElement,
   config: Config
 ) => {
-  // Object.keys(config).forEach((key) => {
-  //   switch (key) {
-  //     case 'source': 
-  //       media.src = config[key]
-  //       break
-  //     default:
-  //       if (key in media) {
-  //         media[key] = config[key]
-  //       }
-  //       break
-  //   }
-  // })
+  Object.keys(config).forEach((key) => {
+    switch (key) {
+      case 'source': 
+        media.src = config[key]
+        break
+      case 'ui': 
+          break
+      case 'spatial':
+        break
+      default:
+        if (key in media) {
+          media[key] = config[key]
+        }
+        break
+    }
+  })
 }
