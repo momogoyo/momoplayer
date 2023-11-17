@@ -2,3 +2,4 @@ export declare const createObject: <T extends object, P extends object>(proto: T
 export declare function isObject(value: any): boolean;
 export declare const assign: (obj: any, ...args: any[]) => any;
 export declare const extend: (target: any, ...sources: any[]) => any;
+export declare const checkMediaType: (source: string) => "audio" | "video";

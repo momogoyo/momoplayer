@@ -1,3 +1,8 @@
+/// <reference types="react" />
 import type { Context } from '@/context/types';
-declare const Container: (context: Context) => import("preact").JSX.Element;
+interface ContainerProps {
+    context: Context;
+    mediaComponent: JSX.Element;
+}
+declare const Container: ({ context, mediaComponent }: ContainerProps) => import("preact").JSX.Element;
 export default Container;

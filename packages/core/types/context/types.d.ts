@@ -9,7 +9,6 @@ export interface Context {
     uid: number;
     config: Config;
     element: MediaTypes;
-    refs: any;
     emotion: any;
     instance: Instance;
 }
