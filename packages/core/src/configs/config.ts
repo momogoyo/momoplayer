@@ -1,4 +1,4 @@
-import { extend } from '@/utils'
+import { extend } from '@/lib/utils'
 import { defaultConfig } from './types'
 
 import type { Config } from './types'

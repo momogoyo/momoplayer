@@ -37,7 +37,7 @@ const Page = ({
   useEffect(() => {
     if (mounted && mediaRef1.current) {
       playerRef1.current = createPlayer(mediaRef1.current, {
-        source: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        source: 'https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd',
         autoplay: true,
         muted: true,
         ui: true,

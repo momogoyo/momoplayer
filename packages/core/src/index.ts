@@ -1,4 +1,4 @@
-import { createObject } from '@/utils'
+import { createObject } from '@/lib'
 import { defineConfig } from '@/configs'
 import { createContext } from '@/context'
 import { createEvents } from '@/events'
