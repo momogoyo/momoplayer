@@ -1,9 +1,7 @@
-// const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
-// const withVanillaExtract = createVanillaExtractPlugin();
+const { withKumaUI } = require("@kuma-ui/next-plugin")
 
-// module.exports = withVanillaExtract()
-
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   transpilePackages: [
     "@momoplayer/core",
@@ -11,3 +9,5 @@ module.exports = {
     "@momoplayer/vue"
   ]
 }
+
+module.exports = withKumaUI(nextConfig)

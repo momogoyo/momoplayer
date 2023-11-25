@@ -24,8 +24,6 @@ export const createContext = (
     instance: null
   }
 
-  // initializeLoad(element, config)
-
   return momoContext[uid]
 }
 

@@ -13,8 +13,8 @@ export interface Config {
   volume?: number
   // 공간 음향 활성화 여부를 설정합니다.
   spatial?: boolean
-  // momoplayer의 ui를 사용할지의 여부를 설정합니다.
-  ui?: boolean
+  // 미디어 타입을 설정합니다.
+  mediaType?: 'hls' | 'dash' | 'video' | 'audio'
 }
 
 export const defaultConfig = {
@@ -25,5 +25,5 @@ export const defaultConfig = {
   loop: false,
   volume: 0.5,
   spatial: false,
-  ui: false
+  mediaType: ''
 }

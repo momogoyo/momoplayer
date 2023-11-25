@@ -5,9 +5,9 @@ import {
   isDashExtension
 } from '@/lib'
 
-import { load as loadHls } from '@/media/hls'
-import { load as loadDash } from '@/media/dash'
-import { load as loadHTMLMedia } from '@/media/html'
+// import { load as loadHls } from '@/media/hls'
+// import { load as loadDash } from '@/media/dash'
+// import { load as loadHTMLMedia } from '@/media/html'
 
 export const Media = ({
   context,
@@ -17,18 +17,18 @@ export const Media = ({
   const mediaRef = useRef<HTMLMediaElement | null>(null)
   const [mediaType, setMediaType] = useState<string>('')
 
-  const loadSource = () => {
-    if (isHlsExtension(source)) {
-      const media = loadHls(source, mediaRef.current)
-      context.instance.media = media
-    } else if (isDashExtension(source)) {
-      const media = loadDash(source, mediaRef.current)
-      context.instance.media = media
-    } else {
-      const media = loadHTMLMedia(source, mediaRef.current)
-      context.instance.media = media
-    }
-  }
+  // const loadSource = () => {
+  //   if (isHlsExtension(source)) {
+  //     const media = loadHls(source, mediaRef.current)
+  //     context.instance.media = media
+  //   } else if (isDashExtension(source)) {
+  //     const media = loadDash(source, mediaRef.current)
+  //     context.instance.media = media
+  //   } else {
+  //     const media = loadHTMLMedia(source, mediaRef.current)
+  //     context.instance.media = media
+  //   }
+  // }
 
   useEffect(() => {
     const mediaType = checkMediaType(source)
@@ -37,7 +37,7 @@ export const Media = ({
   
   useEffect(() => {
     if (mediaRef.current) {
-      loadSource()
+      // loadSource()
     }
   }, [mediaType])
 

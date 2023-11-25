@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@kuma-ui/core": "^1.5.3",
     "@momoplayer/core": "^0.0.2",
     "@momoplayer/react": "^0.0.0",
     "@momoplayer/vue": "^0.0.0",
@@ -16,6 +17,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@kuma-ui/next-plugin": "^1.1.13",
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
