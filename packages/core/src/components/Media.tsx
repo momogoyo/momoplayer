@@ -4,11 +4,10 @@ import {
   isHlsExtension,
   isDashExtension
 } from '@/lib'
-import {
-  loadHls, 
-  loadDash, 
-  loadHTMLMedia
-} from '@/render/load'
+
+import { load as loadHls } from '@/media/hls'
+import { load as loadDash } from '@/media/dash'
+import { load as loadHTMLMedia } from '@/media/html'
 
 export const Media = ({
   context,
@@ -26,7 +25,7 @@ export const Media = ({
       const media = loadDash(source, mediaRef.current)
       context.instance.media = media
     } else {
-      const media = loadHTMLMedia(mediaRef.current)
+      const media = loadHTMLMedia(source, mediaRef.current)
       context.instance.media = media
     }
   }

@@ -1,5 +1,5 @@
-export declare const Media: ({ source, ...props }: {
+export declare const Media: ({ context, ...props }: {
     [x: string]: any;
-    source: any;
+    context: any;
 }) => import("preact").JSX.Element;
 export default Media;
