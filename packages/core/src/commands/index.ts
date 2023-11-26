@@ -3,28 +3,31 @@ import { subscribeWithSelector } from 'zustand/middleware'
 import { provider } from '@/context'
 
 export const createCommands = () => provider(({
-  instance,
-  element
+  config
 }) => {
   const defaultCommands = {
-    play: false,
-    pause: false
+    ...config
   }
 
   const store = createStore(subscribeWithSelector(() => ({
     ...defaultCommands
   })))
 
+  const subscribeKeys = (state, prevState) => {
+    const diff = Object.keys(state).filter(key => state[key] !== prevState[key])
+  
+    return diff
+  }
+
+  let prevState = store.getState()
+  
   store.subscribe(
-    (state) => state.play,
+    (state) => state,
     (value) => {
-      if (value) {
-        if (element instanceof HTMLMediaElement) {
-          element.play()
-        }
-        // context.events.emit(Events.PLAY)
-      }
-      
+      const diff = subscribeKeys(value, prevState)
+      diff.forEach((key) => {
+        console.log(`${key}에 대한 이벤트 처리`)
+      })
     }
   )
 

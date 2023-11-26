@@ -30,6 +30,8 @@ export const play  = () => provider(({
   instance
 }) => {
   instance.media.play()
+  
+  // context.events.emit(Events.PLAY)
 })
 
 export const pause  = () => provider(({

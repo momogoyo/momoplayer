@@ -2,7 +2,7 @@ import type { MediaTypes, Config } from '@/types';
 export interface Instance {
     version: string;
     commands: () => void;
-    ui: () => void;
+    media: any;
     spatial: () => void;
 }
 export interface Context {

@@ -3,8 +3,9 @@ import { defineConfig } from '@/configs'
 import { createContext } from '@/context'
 import { createEvents } from '@/events'
 import { checkMediaType } from '@/lib'
-import { createCommands } from '@/commands'
 import { loadMedia } from '@/media'
+import { createCommands } from '@/commands'
+import { createStyles } from '@/styles'
 import { createSpatial } from '@/media/spatial'
 
 import type { Config } from './types'
@@ -26,7 +27,6 @@ export const createPlayer = (
   const media = { ...loadMedia() }
 
   const instance = context.instance = createObject({
-    // commands: { ...createCommands() }
     ...media,
     ...createEvents()
   }, {
@@ -44,8 +44,9 @@ export const createPlayer = (
   })
 
   instance.media = media.load()
+  instance.commands = createCommands()
+  instance.styles = createStyles()
 
-  // instance.commands = createCommands()
   // instance.spatial = createSpatial()
   
   return instance

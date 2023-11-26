@@ -6,7 +6,7 @@ export interface Config {
     loop?: boolean;
     volume?: number;
     spatial?: boolean;
-    ui?: boolean;
+    mediaType?: 'hls' | 'dash' | 'video' | 'audio';
 }
 export declare const defaultConfig: {
     source: string;
@@ -16,5 +16,5 @@ export declare const defaultConfig: {
     loop: boolean;
     volume: number;
     spatial: boolean;
-    ui: boolean;
+    mediaType: string;
 };

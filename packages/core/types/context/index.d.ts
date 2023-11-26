@@ -1,1 +1,1 @@
-export { createContext, provider } from './context';
+export { getContext, createContext, provider } from './context';
